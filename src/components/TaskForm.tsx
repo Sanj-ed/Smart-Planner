@@ -81,8 +81,12 @@ export function TaskForm({ open, onClose, editTask }: TaskFormProps) {
           type: "info",
         });
       } else {
+        // Fix: Ensure all required fields are provided
         addTask({
-          ...values,
+          title: values.title,
+          description: values.description || "",
+          dueDate: values.dueDate,
+          priority: values.priority,
           completed: false,
         });
         
