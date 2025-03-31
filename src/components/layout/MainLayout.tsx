@@ -20,7 +20,8 @@ import {
   BarChart, 
   Menu,
   X,
-  User
+  User,
+  History
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -34,6 +35,7 @@ const navigation = [
   { name: "Tasks", href: "/tasks", icon: CheckSquare },
   { name: "Calendar", href: "/calendar", icon: Calendar },
   { name: "Analytics", href: "/analytics", icon: BarChart },
+  { name: "Project History", href: "/project-history", icon: History },
 ];
 
 export default function MainLayout({ children }: MainLayoutProps) {

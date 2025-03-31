@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import TasksPage from "./pages/TasksPage";
 import CalendarPage from "./pages/CalendarPage";
 import AnalyticsPage from "./pages/AnalyticsPage";
+import ProjectHistory from "./pages/ProjectHistory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -64,6 +65,15 @@ const App = () => (
                   element={
                     <ProtectedRoute>
                       <AnalyticsPage />
+                    </ProtectedRoute>
+                  }
+                />
+                
+                <Route
+                  path="/project-history"
+                  element={
+                    <ProtectedRoute>
+                      <ProjectHistory />
                     </ProtectedRoute>
                   }
                 />
