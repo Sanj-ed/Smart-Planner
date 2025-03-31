@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Task, Priority, TaskStats } from "@/types";
 import { toast } from "@/hooks/use-toast";
@@ -31,44 +30,9 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
       if (storedTasks) {
         setTasks(JSON.parse(storedTasks));
       } else {
-        // Initialize with some sample tasks if none exist
-        const sampleTasks = [
-          {
-            id: "task1",
-            title: "Complete project proposal",
-            description: "Finalize the project proposal for the client meeting",
-            dueDate: addMonths(new Date(), 1).toISOString(),
-            completed: false,
-            priority: "high" as Priority,
-            userId: user.id,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
-          },
-          {
-            id: "task2",
-            title: "Weekly team meeting",
-            description: "Discuss project progress and assign tasks for the next sprint",
-            dueDate: new Date().toISOString(),
-            completed: false,
-            priority: "medium" as Priority,
-            userId: user.id,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
-          },
-          {
-            id: "task3",
-            title: "Update documentation",
-            description: "Update the project documentation with recent changes",
-            dueDate: addMonths(new Date(), 1).toISOString(),
-            completed: true,
-            priority: "low" as Priority,
-            userId: user.id,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
-          },
-        ];
-        setTasks(sampleTasks);
-        localStorage.setItem(`tasks_${user.id}`, JSON.stringify(sampleTasks));
+        // Initialize with an empty array instead of sample tasks
+        setTasks([]);
+        localStorage.setItem(`tasks_${user.id}`, JSON.stringify([]));
       }
     } else {
       setTasks([]);
